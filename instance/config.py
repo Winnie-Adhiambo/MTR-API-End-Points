@@ -1,4 +1,5 @@
 import os
+#an instance object is a member of a given class that has specified values rather than variables
 
 class Config(object):
     """Parent Configuration Class"""
