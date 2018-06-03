@@ -7,7 +7,7 @@ creates feedback mechanism on the app.
 
 **Installation**
 
-$ git clone Locate  MTR-API-End-Points/app/requuest.py folder in your local computer. 
+$ git clone Locate  MTR-API-End-Points/app/request.py folder in your local computer. 
 
 **Technologies and Languages**
 
