@@ -13,6 +13,13 @@ $ git clone Locate  MTR-API-End-Points/app/request.py folder in your local compu
 
 Version control (Git) Project management (Agile),python 3,travis ci,coveralls,Flask_RESTful
 
+
+**TRAVIS CI Link**
+[![Build Status](https://travis-ci.org/AMOSMWORIA/MTR-API-End-Points.svg?branch=ft-userlogin-%23157968435)](https://travis-ci.org/AMOSMWORIA/MTR-API-End-Points)
+
+**COVERALLS LINK**
+[![Coverage Status](https://coveralls.io/repos/github/AMOSMWORIA/MTR-API-End-Points/badge.svg?branch=ft-userlogin-%23157968435)](https://coveralls.io/github/AMOSMWORIA/MTR-API-End-Points?branch=ft-userlogin-%23157968435)
+
 **Acknowledgement**
 
 Andela Bootcamp - cohort 28
