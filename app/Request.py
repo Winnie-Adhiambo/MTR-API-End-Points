@@ -34,11 +34,6 @@ reqparse.add_argument('title',type=str,required=True, help='No Title Given',loca
 reqparse.add_argument('description',type=str,required=True, help='No description Given',location='json')
 reqparse.add_argument('category',type=str,required=True, help='No category Given',location='json')
 
-
-
-
-
-print(request_store)
 class RequestById(Resource):
     #this class includes only the get by id and put methods which have a unique id.
     @marshal_with(resource_fields)
@@ -82,3 +77,7 @@ class RequestAll(Resource):
                  category = args['category'])
         request_store.append(request) #This codes wants to update the request to by including the new post
         return request_store, 201 # 201 message indicates that the request has succeeded and has led to the creation of a resource.
+
+class HelloWorld(Resource):
+    def get(self):
+        return {'hello': 'world'}       

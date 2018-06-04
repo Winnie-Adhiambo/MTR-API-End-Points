@@ -1,6 +1,6 @@
 import json
 import unittest
-from maintenance import app
+from app import app
 
 class Request_tests(unittest.TestCase):
     def setUp(self):
@@ -24,30 +24,32 @@ class Request_tests(unittest.TestCase):
                    "category": "repair"}
         res = self.client.post('/api/v1/request', json=request)
         self.assertEqual(res.status_code, 400)
-        self.assertEqual(res.json['message']['title'], "please enter title")
+        self.assertEqual(res.json['message']['title'], "No Title Given")
 
     def test_create_request_with_no_description(self):
         request = {"title": "car",
                    "category": "repair"}
         res = self.client.post('/api/v1/request', json=request)
         self.assertEqual(res.status_code, 400)
-        self.assertEqual(res.json['message']['description'], "please enter description ")
+        self.assertEqual(res.json['message']['description'], "No description Given")
 
     def test_create_request_with_no_category(self):
         request = {"title": "car", "description": "brake pads"}
         res = self.client.post('/api/v1/request', json=request)
         self.assertEqual(res.status_code, 400)
-        self.assertEqual(res.json['message']["category"], "please enter category")
+        self.assertEqual(res.json['message']["category"], "No category Given")
 
     def test_update_request(self):
         request = {"title": "car", "description": "brake pads", "category": "repair"}
         res = self.client.post('/api/v1/request', json=request)
-        post_id = res.json['request_id']
+        print(res.json)
+        requests = res.json
+        post_id = requests[len(requests) - 1]['id']
         request = {"title": "laptop", "description": "hard disk", "category": "repair"}
         self.client.put('/api/v1/request/' + str(post_id), json=request)
         updated = self.client.get('/api/v1/request/' + str(post_id))
-        self.assertEqual(updated.json['request_title'], "laptop")
-        self.assertEqual(updated.json['request_description'], "laptop harddisk repair")
+        self.assertEqual(updated.json['title'], "laptop")
+        self.assertEqual(updated.json['description'], "hard disk")
 
     def test_get_all(self):
         request = self.client.get('/api/v1/request')
